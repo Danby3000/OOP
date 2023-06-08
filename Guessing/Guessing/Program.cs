@@ -12,11 +12,17 @@
 
             do 
             { 
-                Console.WriteLine("What is your guess?");
+                Console.WriteLine("What is your guess? (1-99)");
                 String guessIn = Console.ReadLine();
                 //input sanitisation needed
                 if (String.IsNullOrWhiteSpace(guessIn)) {
                     Console.WriteLine("Invalid input");
+                    return;
+                }
+                if (!guessIn.All(char.IsDigit))
+                {
+                    Console.WriteLine("That is not a number");
+                    return;
                 }
                 guess = int.Parse(guessIn);
                
