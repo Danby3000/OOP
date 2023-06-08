@@ -16,7 +16,7 @@
                 String guessIn = Console.ReadLine();
                 //input sanitisation needed
                 if (String.IsNullOrWhiteSpace(guessIn)) {
-                    Console.WriteLine("Invalid input");
+                    Console.WriteLine("Input is null or empty");
                     return;
                 }
                 if (!guessIn.All(char.IsDigit))
