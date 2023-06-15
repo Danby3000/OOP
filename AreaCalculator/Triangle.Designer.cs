@@ -144,7 +144,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "Triangle";
-            this.Text = "Triangle";
+            this.Text = "Area of Triangle";
             this.ResumeLayout(false);
             this.PerformLayout();
 

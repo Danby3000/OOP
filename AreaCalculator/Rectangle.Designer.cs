@@ -124,7 +124,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "Rectangle";
-            this.Text = "Rectangle";
+            this.Text = "Area of Rectangle";
             this.ResumeLayout(false);
             this.PerformLayout();
 
