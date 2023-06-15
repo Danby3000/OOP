@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static void ChowMain(string[] args)
+        static void Main(string[] args)
         {
             bool quit = false;
 
