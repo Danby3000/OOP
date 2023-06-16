@@ -16,14 +16,17 @@ namespace Hangman
 
             //generate word and placeholder
 
-            string word = "banana";
-            char[] placeholder = "------".ToCharArray();
+            WordGen wg = new WordGen();
+            string word = wg.randomWord();
+            char[] placeholder = wg.createPlaceholder(word);
 
-            
+            //string word = "banana";
+            //char[] placeholder = "------".ToCharArray();
 
             do
             {
-                Console.WriteLine(new string(placeholder)+ "\n");
+                string placeholderStr = new string(placeholder);
+                Console.WriteLine(placeholderStr+ "\n");
                 Console.WriteLine("What is your guess?");
                 String guessIn = Console.ReadLine();
 
@@ -51,12 +54,20 @@ namespace Hangman
                     foreach(int i in arr)
                     {
                         placeholder[i] = guess;
+
+                        if (wc.IsComplete(word, new string(placeholder)))
+                        {
+                            Console.WriteLine("It was: {0}", word);
+                            Console.WriteLine("Congratulations, you have avoided being hung!!!\n");
+                            return;
+                        }
                     }
                 }
-
-
-
-
+                else
+                {
+                    guesses++;
+                    Console.WriteLine("Wrong, you have used {0} guesses\n", guesses);
+                }
 
             } while (guesses < 7);
         }

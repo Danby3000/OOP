@@ -38,9 +38,9 @@ namespace Hangman
             return indexes;
         }
 
-        public bool IsComplete(string word)
+        public bool IsComplete(string word, string placeholder)
         {
-            return (!word.Contains('_'));
+            return word==placeholder;
         }
 
 
