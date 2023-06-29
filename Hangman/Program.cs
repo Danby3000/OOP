@@ -12,16 +12,12 @@ namespace Hangman
             Console.WriteLine("Welcome, what is your name?");
             string name = Console.ReadLine();
             Console.WriteLine("Well {0}, this is the hangmans office and you're a fixin for todays hangin'", name);
-            Console.WriteLine("Below I will display an empty word and you have to guess what it is letter by letter. You have 7 goes\n");
-
-            //generate word and placeholder
+            Console.WriteLine("Below I will display an empty word and you have to guess what it is letter by letter. You have 7 guesses\n");
 
             WordGen wg = new WordGen();
             string word = wg.randomWord();
             char[] placeholder = wg.createPlaceholder(word);
 
-            //string word = "banana";
-            //char[] placeholder = "------".ToCharArray();
 
             do
             {
