@@ -6,14 +6,32 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="height: 194px">
     
     <form id="form1" runat="server">
-        <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+        Use the bar below to search the table<br />
+        <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
         </asp:DropDownList>
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
 
-        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" Width="69px"/>
+        <asp:Button ID="Button1" runat="server" Text="Search" BackColor="#009933" ForeColor="Black" OnClick="Button1_Click" Width="69px"/>
+        <br />
+        <br />
+        Enter the index of the row you wish to delete or update<br />
+        <asp:TextBox ID="TextBox2" runat="server" Width="50px"></asp:TextBox>
+        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Delete" />
+        <br />
+        <br />
+        Enter details to insert or update<br />
+        <asp:Label ID="Label1" runat="server" AssociatedControlID="TextBox3" Text="Value"></asp:Label>
+        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <asp:Label ID="Label2" runat="server" AssociatedControlID="TextBox4" Text="Suit"></asp:Label>
+        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+&nbsp;&nbsp;
+        <asp:CheckBox ID="Update" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
+        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Send" />
+        <br />
+        <br />
 
         <div>
             <asp:GridView ID="GridView1" runat="server"></asp:GridView>
