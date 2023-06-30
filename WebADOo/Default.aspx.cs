@@ -43,12 +43,18 @@ namespace WebADOo
                 //close reader
                 reader.Close();
 
-                string sqlStringDropDownList = "select suit from Playing";
+                string sqlStringDropDownList = "select value from Playing";
                 SqlCommand cmd2 = new SqlCommand(sqlStringDropDownList, con);
                 SqlDataReader dr2 = cmd2.ExecuteReader();
                 while (dr2.Read() == true)
                 {
-                    DropDownList1.Items.Add(new ListItem(dr2["suit"].ToString(), dr2["suit"].ToString()));
+                    string suit = dr2["value"].ToString();
+                    ListItem item = new ListItem(suit, suit);
+                    if (!DropDownList1.Items.Contains(item))
+                    {
+                        DropDownList1.Items.Add(item);
+                    }
+                    
                 }
 
                 dr2.Close();
@@ -63,9 +69,12 @@ namespace WebADOo
         {
             
             String txtValue = TextBox1.Text;
+            if (String.IsNullOrWhiteSpace(txtValue)){
+                txtValue = "%";
+            }
             string s = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
             SqlConnection con = new SqlConnection(s);
-            string sqlString = "select * from Playing where suit=@suit";
+            string sqlString = "select * from Playing where suit like @suit";
             SqlCommand cmd = new SqlCommand(sqlString, con);
 
             //sanitisastion
@@ -103,9 +112,9 @@ namespace WebADOo
                 string txtValue = DropDownList1.SelectedValue.ToString();
                 string s = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
                 SqlConnection con = new SqlConnection(s);
-                string sqlString = "select * from Playing where suit=@suit";
+                string sqlString = "select * from Playing where value=@value";
                 SqlCommand cmd = new SqlCommand( sqlString, con);
-                cmd.Parameters.AddWithValue("@suit", txtValue);
+                cmd.Parameters.AddWithValue("@value", txtValue);
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 GridView1.DataSource = dr;

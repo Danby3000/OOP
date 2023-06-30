@@ -19,7 +19,7 @@
         <br />
         Enter the index of the row you wish to delete or update<br />
         <asp:TextBox ID="TextBox2" runat="server" Width="50px"></asp:TextBox>
-        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Delete" />
+        <asp:Button ID="Button2" runat="server" BackColor="Red" OnClick="Button2_Click" Text="Delete" />
         <br />
         <br />
         Enter details to insert or update<br />
@@ -29,7 +29,7 @@
         <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
 &nbsp;&nbsp;
         <asp:CheckBox ID="Update" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
-        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Send" />
+        <asp:Button ID="Button3" runat="server" BackColor="Blue" OnClick="Button3_Click" Text="Send" />
         <br />
         <br />
 
